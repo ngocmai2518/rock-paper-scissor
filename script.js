@@ -22,17 +22,13 @@ function getComputerChoice() {
 
 function playRound(playerSelection,computerSelection) {
   const array = [playerSelection,computerSelection];
-  const caseWinner1 = ["rock","scissor"];
-  const caseWinner2 = ["paper","rock"];
-  const caseWinner3 = ["scissor","paper"];
+  const caseWinner = ["rock","scissor"] || ["paper","rock"] || ["scissor","paper"];
   let result;
 
   if (playerSelection === computerSelection) {
     result = "Draw, please play again"
   }
-  else if (JSON.stringify(array) === JSON.stringify(caseWinner1) || 
-    JSON.stringify(array) === JSON.stringify(caseWinner2) || 
-    JSON.stringify(array) === JSON.stringify(caseWinner3)) {
+  else if (JSON.stringify(array) === JSON.stringify(caseWinner)) {
     result = "You win! " + playerSelection.charAt(0).toUpperCase() 
       + playerSelection.slice(1) + " beats " + computerSelection + "!"
   }
